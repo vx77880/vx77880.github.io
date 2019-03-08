@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script>
+        (function(){
+            var docEl = document.documentElement;/*获取文档元素，相当于获取HTML标签的父集*/
+            var width = docEl.getBoundingClientRect().width;/*获取这个元素的宽度，就是屏幕的宽度*/
+            if(width > 769){
+                width = 768
+            }
+            var rootSize = width/15;
+            docEl.style.fontSize = rootSize + 'px';
+        })()
+    </script>
+    
+    <style type="text/css">
+        body{margin: 0;padding: 0;}
+        li, ul {list-style: none;padding: 0;}
+        a {text-decoration:none;outline:none;font-size:16px;}
+        .header{width:100%;padding:0 5%;box-sizing:border-box;height:40px;line-height:40px;vertical-align:middle;background:#01396C;margin-bottom:15px;text-align:center;position: relative;}
+        .nav_p{width: 100%;overflow: hidden;}
+        .nav_p a{float:left;margin-right:15px; color:#fff;}
+        .icon_wr{float: right;z-index: 999;display: none;position: relative;width: 100px;height: 40px;background:#01396C;}
+        .icon_wr .icon{float: right;width: 32px;height: 32px;background: url("https://qqpublic.qpic.cn/qq_public/0/0-2337459828-139EC60FED4913B6114239EE52859FB5/0?fmt=png&size=0&rs=0-0&h=48&w=48&ppv=1")no-repeat 0 0/100% 100%;margin-top: 4px;}
+        .nav_m{position: absolute;top:-500px;right:3%;width: 100px;background: #01396C;z-index: -1;border-radius: 5px;transition:all 0.3s;}
+        .nav_m.active{top:54px;z-index: 200;}
+        .nav_m:before{position: absolute;right: 20px;top: -8px;width: 0;height: 0;content: "";border-width: 8px 8px 0 8px;border-style: solid;border-color: #01396C transparent;transform: rotate(180deg);}
+        .nav_m a{display: block;color:#fff;width: 100%;text-align: center;height: 40px;line-height: 40px;}
+        .container{margin:0 auto;}
+        .content{width:90%;margin:0 auto;text-align:center;overflow: hidden;}
+        .content .box{float:left;margin-bottom:1%;margin-right:1%;width:19%;height: 7rem;position: relative;font-size: 0;background: #f5f5f5;}
+        .box .name{position:absolute;bottom:0;left: 0;right:0;width: 100%;height:36px;line-height: 36px;text-align: left;box-sizing: border-box;padding:0 2%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background: rgba(0,0,0,0.6);color:#fff;font-size: 15px; }
+        .page_wrapper{width: 100%;margin: 20px 0;text-align: center;}
+        .page_wrapper ul li {display: inline-block;margin-left: 10px;padding: 8px 15px;border-radius: 4px;border: 1px solid #2b2a2a;background-color: #444;color: #999;font-size:16px;}
+        .page_wrapper ul li a{color:#999;}
+        .page_wrapper ul li.thisclass{background-color: #09BB07;color: #fff;border:1px solid #09BB07;}
+        .page_wrapper ul li select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        @media screen and (min-width: 1001px) {
+            .content .box:nth-child(5n){margin-right: 0;}
+        }
+        /*@media (min-width: 1301px) and (max-width: 1600px) {*/
+            /*.content .box{width: 13.4%;}*/
+            /*.content .box:nth-child(7n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 1001px) and (max-width: 1300px) {*/
+            /*.content .box{width: 19%;}*/
+            /*.content .box:nth-child(5n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 769px) and (max-width: 1000px) {*/
+            /*.content .box{width: 24%;}*/
+            /*.content .box:nth-child(4n){margin-right: 0;}*/
+        /*}*/
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .content .box{width: 32%;height: 8rem;}
+            .content .box:nth-child(3n){margin-right: 0;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+        }
+        @media (max-width: 767px) {
+            .content .box{width:100%;height: 15rem;margin-right: 0;margin-bottom:2%;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+            .page_wrapper ul li.page{display: none;}
+            .page_wrapper ul li.mobel_page{display: inline-block;}
+        }
+        .img-rounded{width:100%; height: 100%;}
+        .icon_video_play{width:60px;height:60px;position:absolute;background:url(https://qqpublic.qpic.cn/qq_public/0/0-3066459326-33EE36A7046D6A7956121BC7F6387A42/0?fmt=png&size=4&rs=0-0&h=200&w=200&ppv=1)no-repeat 0 0 /100% 100%;cursor:pointer;z-index:11;left: 40%;top: 40%;}
+        .page_wrapper select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        
+    </style>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cacac2d6677ee8b2bf4a778225147784";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="nav_p">
+            <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+
+        </div>
+        <div class="icon_wr" onclick="open_nav()">
+            <div class="icon"></div>
+        </div>
+        <div class="nav_m">
+        <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+        </div>
+    </div>
+    <div class="content">
+        <a href="/jiepaimeinv/2019/0308/80.html" target="_blank" title="街拍美女V 88-性感热裤OL勾"><div class="box"><img data-original="https://p.syasn.com/5j88+350" class="img-rounded" alt="街拍美女V 88-性感热裤OL勾" /><div class="icon_video_play"></div><div class="name">街拍美女V 88-性感热裤OL勾</div></div></a><a href="/jiepaimeinv/2019/0308/79.html" target="_blank" title="街拍美女V 89-高跟白衣热"><div class="box"><img data-original="https://p.syasn.com/5j89+350" class="img-rounded" alt="街拍美女V 89-高跟白衣热" /><div class="icon_video_play"></div><div class="name">街拍美女V 89-高跟白衣热</div></div></a><a href="/jiepaimeinv/2019/0308/78.html" target="_blank" title="街拍美女V 90-商店里的黑色"><div class="box"><img data-original="https://p.syasn.com/5j90+350" class="img-rounded" alt="街拍美女V 90-商店里的黑色" /><div class="icon_video_play"></div><div class="name">街拍美女V 90-商店里的黑色</div></div></a><a href="/jiepaimeinv/2019/0308/77.html" target="_blank" title="街拍美女V 91-跟拍性感黑丝"><div class="box"><img data-original="https://p.syasn.com/5j91+350" class="img-rounded" alt="街拍美女V 91-跟拍性感黑丝" /><div class="icon_video_play"></div><div class="name">街拍美女V 91-跟拍性感黑丝</div></div></a><a href="/jiepaimeinv/2019/0308/76.html" target="_blank" title="街拍美女V 92-电梯上的牛仔"><div class="box"><img data-original="https://p.syasn.com/5j92+350" class="img-rounded" alt="街拍美女V 92-电梯上的牛仔" /><div class="icon_video_play"></div><div class="name">街拍美女V 92-电梯上的牛仔</div></div></a><a href="/jiepaimeinv/2019/0308/75.html" target="_blank" title="街拍美女V 93-高跟美女坐姿"><div class="box"><img data-original="https://p.syasn.com/5j93+350" class="img-rounded" alt="街拍美女V 93-高跟美女坐姿" /><div class="icon_video_play"></div><div class="name">街拍美女V 93-高跟美女坐姿</div></div></a><a href="/jiepaimeinv/2019/0308/74.html" target="_blank" title="街拍美女V 94-跟着美女去买"><div class="box"><img data-original="https://p.syasn.com/5j94+350" class="img-rounded" alt="街拍美女V 94-跟着美女去买" /><div class="icon_video_play"></div><div class="name">街拍美女V 94-跟着美女去买</div></div></a><a href="/jiepaimeinv/2019/0308/73.html" target="_blank" title="街拍美女V 95-高跟大白腿很"><div class="box"><img data-original="https://p.syasn.com/5j95+350" class="img-rounded" alt="街拍美女V 95-高跟大白腿很" /><div class="icon_video_play"></div><div class="name">街拍美女V 95-高跟大白腿很</div></div></a><a href="/jiepaimeinv/2019/0308/72.html" target="_blank" title="街拍美女V 96-长时间跟拍极"><div class="box"><img data-original="https://p.syasn.com/5j96+350" class="img-rounded" alt="街拍美女V 96-长时间跟拍极" /><div class="icon_video_play"></div><div class="name">街拍美女V 96-长时间跟拍极</div></div></a><a href="/jiepaimeinv/2019/0308/71.html" target="_blank" title="街拍美女V 97-成熟少女雪白"><div class="box"><img data-original="https://p.syasn.com/5j97+350" class="img-rounded" alt="街拍美女V 97-成熟少女雪白" /><div class="icon_video_play"></div><div class="name">街拍美女V 97-成熟少女雪白</div></div></a><a href="/jiepaimeinv/2019/0308/70.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j291+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/69.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j292+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/68.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j293+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/67.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j294+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/66.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j295+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/65.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j296+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/64.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j297+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/63.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j298+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/62.html" target="_blank" title="街拍美女IV 逍遥会员区2"><div class="box"><img data-original="https://p.syasn.com/4j299+350" class="img-rounded" alt="街拍美女IV 逍遥会员区2" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区2</div></div></a><a href="/jiepaimeinv/2019/0308/61.html" target="_blank" title="街拍美女IV 逍遥会员区3"><div class="box"><img data-original="https://p.syasn.com/4j300+350" class="img-rounded" alt="街拍美女IV 逍遥会员区3" /><div class="icon_video_play"></div><div class="name">街拍美女IV 逍遥会员区3</div></div></a><a href="/jiepaimeinv/2019/0308/60.html" target="_blank" title="街拍美女III 刺客专区489"><div class="box"><img data-original="https://p.syasn.com/3j489+350" class="img-rounded" alt="街拍美女III 刺客专区489" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区489</div></div></a><a href="/jiepaimeinv/2019/0308/59.html" target="_blank" title="街拍美女III 刺客专区490"><div class="box"><img data-original="https://p.syasn.com/3j490+350" class="img-rounded" alt="街拍美女III 刺客专区490" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区490</div></div></a><a href="/jiepaimeinv/2019/0308/58.html" target="_blank" title="街拍美女III 刺客专区491"><div class="box"><img data-original="https://p.syasn.com/3j491+350" class="img-rounded" alt="街拍美女III 刺客专区491" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区491</div></div></a><a href="/jiepaimeinv/2019/0308/57.html" target="_blank" title="街拍美女III 刺客专区492"><div class="box"><img data-original="https://p.syasn.com/3j492+350" class="img-rounded" alt="街拍美女III 刺客专区492" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区492</div></div></a><a href="/jiepaimeinv/2019/0308/56.html" target="_blank" title="街拍美女III 刺客专区493"><div class="box"><img data-original="https://p.syasn.com/3j493+350" class="img-rounded" alt="街拍美女III 刺客专区493" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区493</div></div></a><a href="/jiepaimeinv/2019/0308/55.html" target="_blank" title="街拍美女III 刺客专区494"><div class="box"><img data-original="https://p.syasn.com/3j494+350" class="img-rounded" alt="街拍美女III 刺客专区494" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区494</div></div></a><a href="/jiepaimeinv/2019/0308/54.html" target="_blank" title="街拍美女III 刺客专区495"><div class="box"><img data-original="https://p.syasn.com/3j495+350" class="img-rounded" alt="街拍美女III 刺客专区495" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区495</div></div></a><a href="/jiepaimeinv/2019/0308/53.html" target="_blank" title="街拍美女III 刺客专区496"><div class="box"><img data-original="https://p.syasn.com/3j496+350" class="img-rounded" alt="街拍美女III 刺客专区496" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区496</div></div></a><a href="/jiepaimeinv/2019/0308/52.html" target="_blank" title="街拍美女III 刺客专区497"><div class="box"><img data-original="https://p.syasn.com/3j497+350" class="img-rounded" alt="街拍美女III 刺客专区497" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区497</div></div></a><a href="/jiepaimeinv/2019/0308/51.html" target="_blank" title="街拍美女III 刺客专区498"><div class="box"><img data-original="https://p.syasn.com/3j498+350" class="img-rounded" alt="街拍美女III 刺客专区498" /><div class="icon_video_play"></div><div class="name">街拍美女III 刺客专区498</div></div></a><a href="/jiepaimeinv/2019/0308/50.html" target="_blank" title="街拍美女II 杰拉专区491"><div class="box"><img data-original="https://p.syasn.com/2j491+350" class="img-rounded" alt="街拍美女II 杰拉专区491" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区491</div></div></a><a href="/jiepaimeinv/2019/0308/49.html" target="_blank" title="街拍美女II 杰拉专区492"><div class="box"><img data-original="https://p.syasn.com/2j492+350" class="img-rounded" alt="街拍美女II 杰拉专区492" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区492</div></div></a><a href="/jiepaimeinv/2019/0308/48.html" target="_blank" title="街拍美女II 杰拉专区493"><div class="box"><img data-original="https://p.syasn.com/2j493+350" class="img-rounded" alt="街拍美女II 杰拉专区493" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区493</div></div></a><a href="/jiepaimeinv/2019/0308/47.html" target="_blank" title="街拍美女II 杰拉专区494"><div class="box"><img data-original="https://p.syasn.com/2j494+350" class="img-rounded" alt="街拍美女II 杰拉专区494" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区494</div></div></a><a href="/jiepaimeinv/2019/0308/46.html" target="_blank" title="街拍美女II 杰拉专区495"><div class="box"><img data-original="https://p.syasn.com/2j495+350" class="img-rounded" alt="街拍美女II 杰拉专区495" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区495</div></div></a><a href="/jiepaimeinv/2019/0308/45.html" target="_blank" title="街拍美女II 杰拉专区496"><div class="box"><img data-original="https://p.syasn.com/2j496+350" class="img-rounded" alt="街拍美女II 杰拉专区496" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区496</div></div></a><a href="/jiepaimeinv/2019/0308/44.html" target="_blank" title="街拍美女II 杰拉专区497"><div class="box"><img data-original="https://p.syasn.com/2j497+350" class="img-rounded" alt="街拍美女II 杰拉专区497" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区497</div></div></a><a href="/jiepaimeinv/2019/0308/43.html" target="_blank" title="街拍美女II 杰拉专区498"><div class="box"><img data-original="https://p.syasn.com/2j498+350" class="img-rounded" alt="街拍美女II 杰拉专区498" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区498</div></div></a><a href="/jiepaimeinv/2019/0308/42.html" target="_blank" title="街拍美女II 杰拉专区499"><div class="box"><img data-original="https://p.syasn.com/2j499+350" class="img-rounded" alt="街拍美女II 杰拉专区499" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区499</div></div></a><a href="/jiepaimeinv/2019/0308/41.html" target="_blank" title="街拍美女II 杰拉专区500"><div class="box"><img data-original="https://p.syasn.com/2j500+350" class="img-rounded" alt="街拍美女II 杰拉专区500" /><div class="icon_video_play"></div><div class="name">街拍美女II 杰拉专区500</div></div></a>
+    </div>
+    
+    <div class="page_wrapper">
+    <ul>
+    <li>首页</li>
+<li class="thisclass">1</li>
+<li><a href='list_17_2.html'>2</a></li>
+<li><a href='list_17_2.html'>下一页</a></li>
+<li><a href='list_17_2.html'>末页</a></li>
+<li><select name='sldd' style='width:36px' onchange='location.href=this.options[this.selectedIndex].value;'>
+<option value='list_17_1.html' selected>1</option>
+<option value='list_17_2.html'>2</option>
+</select></li>
+ 
+    </ul>
+    </div>
+    
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://lib.h-ui.net/lazyload/1.9.3/lazyload.js"></script>
+<script>
+      $(function() {
+          $("img").lazyload({effect: "fadeIn"});
+      });
+    function open_nav() {
+        if($('.nav_m').hasClass('active')){
+            $('.nav_m').removeClass('active')
+        }else{
+            $('.nav_m').addClass('active')
+        }
+    }
+    $(".page_wrapper ul li").each(function () {
+        $(this).css("display","none");
+        if($(this).find("a").html() === "上一页" || $(this).find("a").html() === "下一页"){
+            $(this).css("display","inline-block")
+        }
+    });
+
+    var href = window.location.href;
+    // 链接返回数据判断
+    if(href.indexOf("index") > -1){
+        setCookie("can_play",1)
+    }
+    //cookie
+    function setCookie(name,value){
+        var Days = 300;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*3600*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
+    }
+</script>
+
+
+</body>
+</html>
+
+

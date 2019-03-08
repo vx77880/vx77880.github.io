@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script>
+        (function(){
+            var docEl = document.documentElement;/*获取文档元素，相当于获取HTML标签的父集*/
+            var width = docEl.getBoundingClientRect().width;/*获取这个元素的宽度，就是屏幕的宽度*/
+            if(width > 769){
+                width = 768
+            }
+            var rootSize = width/15;
+            docEl.style.fontSize = rootSize + 'px';
+        })()
+    </script>
+    
+    <style type="text/css">
+        body{margin: 0;padding: 0;}
+        li, ul {list-style: none;padding: 0;}
+        a {text-decoration:none;outline:none;font-size:16px;}
+        .header{width:100%;padding:0 5%;box-sizing:border-box;height:40px;line-height:40px;vertical-align:middle;background:#01396C;margin-bottom:15px;text-align:center;position: relative;}
+        .nav_p{width: 100%;overflow: hidden;}
+        .nav_p a{float:left;margin-right:15px; color:#fff;}
+        .icon_wr{float: right;z-index: 999;display: none;position: relative;width: 100px;height: 40px;background:#01396C;}
+        .icon_wr .icon{float: right;width: 32px;height: 32px;background: url("https://qqpublic.qpic.cn/qq_public/0/0-2337459828-139EC60FED4913B6114239EE52859FB5/0?fmt=png&size=0&rs=0-0&h=48&w=48&ppv=1")no-repeat 0 0/100% 100%;margin-top: 4px;}
+        .nav_m{position: absolute;top:-500px;right:3%;width: 100px;background: #01396C;z-index: -1;border-radius: 5px;transition:all 0.3s;}
+        .nav_m.active{top:54px;z-index: 200;}
+        .nav_m:before{position: absolute;right: 20px;top: -8px;width: 0;height: 0;content: "";border-width: 8px 8px 0 8px;border-style: solid;border-color: #01396C transparent;transform: rotate(180deg);}
+        .nav_m a{display: block;color:#fff;width: 100%;text-align: center;height: 40px;line-height: 40px;}
+        .container{margin:0 auto;}
+        .content{width:90%;margin:0 auto;text-align:center;overflow: hidden;}
+        .content .box{float:left;margin-bottom:1%;margin-right:1%;width:19%;height: 7rem;position: relative;font-size: 0;background: #f5f5f5;}
+        .box .name{position:absolute;bottom:0;left: 0;right:0;width: 100%;height:36px;line-height: 36px;text-align: left;box-sizing: border-box;padding:0 2%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background: rgba(0,0,0,0.6);color:#fff;font-size: 15px; }
+        .page_wrapper{width: 100%;margin: 20px 0;text-align: center;}
+        .page_wrapper ul li {display: inline-block;margin-left: 10px;padding: 8px 15px;border-radius: 4px;border: 1px solid #2b2a2a;background-color: #444;color: #999;font-size:16px;}
+        .page_wrapper ul li a{color:#999;}
+        .page_wrapper ul li.thisclass{background-color: #09BB07;color: #fff;border:1px solid #09BB07;}
+        .page_wrapper ul li select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        @media screen and (min-width: 1001px) {
+            .content .box:nth-child(5n){margin-right: 0;}
+        }
+        /*@media (min-width: 1301px) and (max-width: 1600px) {*/
+            /*.content .box{width: 13.4%;}*/
+            /*.content .box:nth-child(7n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 1001px) and (max-width: 1300px) {*/
+            /*.content .box{width: 19%;}*/
+            /*.content .box:nth-child(5n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 769px) and (max-width: 1000px) {*/
+            /*.content .box{width: 24%;}*/
+            /*.content .box:nth-child(4n){margin-right: 0;}*/
+        /*}*/
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .content .box{width: 32%;height: 8rem;}
+            .content .box:nth-child(3n){margin-right: 0;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+        }
+        @media (max-width: 767px) {
+            .content .box{width:100%;height: 15rem;margin-right: 0;margin-bottom:2%;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+            .page_wrapper ul li.page{display: none;}
+            .page_wrapper ul li.mobel_page{display: inline-block;}
+        }
+        .img-rounded{width:100%; height: 100%;}
+        .icon_video_play{width:60px;height:60px;position:absolute;background:url(https://qqpublic.qpic.cn/qq_public/0/0-3066459326-33EE36A7046D6A7956121BC7F6387A42/0?fmt=png&size=4&rs=0-0&h=200&w=200&ppv=1)no-repeat 0 0 /100% 100%;cursor:pointer;z-index:11;left: 40%;top: 40%;}
+        .page_wrapper select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        
+    </style>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cacac2d6677ee8b2bf4a778225147784";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="nav_p">
+            <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+
+        </div>
+        <div class="icon_wr" onclick="open_nav()">
+            <div class="icon"></div>
+        </div>
+        <div class="nav_m">
+        <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+        </div>
+    </div>
+    <div class="content">
+        <a href="/jingdianxiezhen/2019/0308/240.html" target="_blank" title="PANS写真 第1079集 雪儿2"><div class="box"><img data-original="https://p.syasn.com/ps1079+350" class="img-rounded" alt="PANS写真 第1079集 雪儿2" /><div class="icon_video_play"></div><div class="name">PANS写真 第1079集 雪儿2</div></div></a><a href="/jingdianxiezhen/2019/0308/239.html" target="_blank" title="PANS写真 第1080集 安安"><div class="box"><img data-original="https://p.syasn.com/ps1080+350" class="img-rounded" alt="PANS写真 第1080集 安安" /><div class="icon_video_play"></div><div class="name">PANS写真 第1080集 安安</div></div></a><a href="/jingdianxiezhen/2019/0308/238.html" target="_blank" title="PANS写真 第1081集 mickey"><div class="box"><img data-original="https://p.syasn.com/ps1081+350" class="img-rounded" alt="PANS写真 第1081集 mickey" /><div class="icon_video_play"></div><div class="name">PANS写真 第1081集 mickey</div></div></a><a href="/jingdianxiezhen/2019/0308/237.html" target="_blank" title="PANS写真 第1082集 卡卡"><div class="box"><img data-original="https://p.syasn.com/ps1082+350" class="img-rounded" alt="PANS写真 第1082集 卡卡" /><div class="icon_video_play"></div><div class="name">PANS写真 第1082集 卡卡</div></div></a><a href="/jingdianxiezhen/2019/0308/236.html" target="_blank" title="PANS写真 第1083集 滴滴 陈迪"><div class="box"><img data-original="https://p.syasn.com/ps1083+350" class="img-rounded" alt="PANS写真 第1083集 滴滴 陈迪" /><div class="icon_video_play"></div><div class="name">PANS写真 第1083集 滴滴 陈迪</div></div></a><a href="/jingdianxiezhen/2019/0308/235.html" target="_blank" title="PANS写真 第1084集 新模试镜"><div class="box"><img data-original="https://p.syasn.com/ps1084+350" class="img-rounded" alt="PANS写真 第1084集 新模试镜" /><div class="icon_video_play"></div><div class="name">PANS写真 第1084集 新模试镜</div></div></a><a href="/jingdianxiezhen/2019/0308/234.html" target="_blank" title="PANS写真 第1085集 咖喱"><div class="box"><img data-original="https://p.syasn.com/ps1085+350" class="img-rounded" alt="PANS写真 第1085集 咖喱" /><div class="icon_video_play"></div><div class="name">PANS写真 第1085集 咖喱</div></div></a><a href="/jingdianxiezhen/2019/0308/233.html" target="_blank" title="PANS写真 第1086集 狐狸"><div class="box"><img data-original="https://p.syasn.com/ps1086+350" class="img-rounded" alt="PANS写真 第1086集 狐狸" /><div class="icon_video_play"></div><div class="name">PANS写真 第1086集 狐狸</div></div></a><a href="/jingdianxiezhen/2019/0308/232.html" target="_blank" title="PANS写真 第1087集 淘淘"><div class="box"><img data-original="https://p.syasn.com/ps1087+350" class="img-rounded" alt="PANS写真 第1087集 淘淘" /><div class="icon_video_play"></div><div class="name">PANS写真 第1087集 淘淘</div></div></a><a href="/jingdianxiezhen/2019/0308/231.html" target="_blank" title="PANS写真 第1088集 雪儿2"><div class="box"><img data-original="https://p.syasn.com/ps1088+350" class="img-rounded" alt="PANS写真 第1088集 雪儿2" /><div class="icon_video_play"></div><div class="name">PANS写真 第1088集 雪儿2</div></div></a><a href="/jingdianxiezhen/2019/0308/230.html" target="_blank" title="nylonjp pantyhose 第37集"><div class="box"><img data-original="https://p.syasn.com/ny37+350" class="img-rounded" alt="nylonjp pantyhose 第37集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第37集</div></div></a><a href="/jingdianxiezhen/2019/0308/229.html" target="_blank" title="nylonjp pantyhose 第38集"><div class="box"><img data-original="https://p.syasn.com/ny38+350" class="img-rounded" alt="nylonjp pantyhose 第38集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第38集</div></div></a><a href="/jingdianxiezhen/2019/0308/228.html" target="_blank" title="nylonjp pantyhose 第39集"><div class="box"><img data-original="https://p.syasn.com/ny39+350" class="img-rounded" alt="nylonjp pantyhose 第39集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第39集</div></div></a><a href="/jingdianxiezhen/2019/0308/227.html" target="_blank" title="nylonjp pantyhose 第40集"><div class="box"><img data-original="https://p.syasn.com/ny40+350" class="img-rounded" alt="nylonjp pantyhose 第40集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第40集</div></div></a><a href="/jingdianxiezhen/2019/0308/226.html" target="_blank" title="nylonjp pantyhose 第41集"><div class="box"><img data-original="https://p.syasn.com/ny41+350" class="img-rounded" alt="nylonjp pantyhose 第41集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第41集</div></div></a><a href="/jingdianxiezhen/2019/0308/225.html" target="_blank" title="nylonjp pantyhose 第42集"><div class="box"><img data-original="https://p.syasn.com/ny42+350" class="img-rounded" alt="nylonjp pantyhose 第42集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第42集</div></div></a><a href="/jingdianxiezhen/2019/0308/224.html" target="_blank" title="nylonjp pantyhose 第43集"><div class="box"><img data-original="https://p.syasn.com/ny43+350" class="img-rounded" alt="nylonjp pantyhose 第43集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第43集</div></div></a><a href="/jingdianxiezhen/2019/0308/223.html" target="_blank" title="nylonjp pantyhose 第44集"><div class="box"><img data-original="https://p.syasn.com/ny44+350" class="img-rounded" alt="nylonjp pantyhose 第44集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第44集</div></div></a><a href="/jingdianxiezhen/2019/0308/222.html" target="_blank" title="nylonjp pantyhose 第45集"><div class="box"><img data-original="https://p.syasn.com/ny45+350" class="img-rounded" alt="nylonjp pantyhose 第45集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第45集</div></div></a><a href="/jingdianxiezhen/2019/0308/221.html" target="_blank" title="nylonjp pantyhose 第46集"><div class="box"><img data-original="https://p.syasn.com/ny46+350" class="img-rounded" alt="nylonjp pantyhose 第46集" /><div class="icon_video_play"></div><div class="name">nylonjp pantyhose 第46集</div></div></a><a href="/jingdianxiezhen/2019/0308/220.html" target="_blank" title="Showgirl 92-2014Tokyo Auto Salo"><div class="box"><img data-original="https://p.syasn.com/s92+350" class="img-rounded" alt="Showgirl 92-2014Tokyo Auto Salo" /><div class="icon_video_play"></div><div class="name">Showgirl 92-2014Tokyo Auto Salo</div></div></a><a href="/jingdianxiezhen/2019/0308/219.html" target="_blank" title="Showgirl 93-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s93+350" class="img-rounded" alt="Showgirl 93-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 93-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/218.html" target="_blank" title="Showgirl 94-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s94+350" class="img-rounded" alt="Showgirl 94-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 94-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/217.html" target="_blank" title="Showgirl 95-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s95+350" class="img-rounded" alt="Showgirl 95-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 95-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/216.html" target="_blank" title="Showgirl 96-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s96+350" class="img-rounded" alt="Showgirl 96-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 96-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/215.html" target="_blank" title="Showgirl 97-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s97+350" class="img-rounded" alt="Showgirl 97-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 97-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/214.html" target="_blank" title="Showgirl 98-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s98+350" class="img-rounded" alt="Showgirl 98-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 98-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/213.html" target="_blank" title="Showgirl 99-2013Tokyo Game Show"><div class="box"><img data-original="https://p.syasn.com/s99+350" class="img-rounded" alt="Showgirl 99-2013Tokyo Game Show" /><div class="icon_video_play"></div><div class="name">Showgirl 99-2013Tokyo Game Show</div></div></a><a href="/jingdianxiezhen/2019/0308/212.html" target="_blank" title="Showgirl 100-2013Tokyo Game Sho"><div class="box"><img data-original="https://p.syasn.com/s100+350" class="img-rounded" alt="Showgirl 100-2013Tokyo Game Sho" /><div class="icon_video_play"></div><div class="name">Showgirl 100-2013Tokyo Game Sho</div></div></a><a href="/jingdianxiezhen/2019/0308/211.html" target="_blank" title="Showgirl 101-2014深圳动漫节"><div class="box"><img data-original="https://p.syasn.com/s101+350" class="img-rounded" alt="Showgirl 101-2014深圳动漫节" /><div class="icon_video_play"></div><div class="name">Showgirl 101-2014深圳动漫节</div></div></a><a href="/jingdianxiezhen/2019/0308/210.html" target="_blank" title="ru1mm 第224集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru224+350" class="img-rounded" alt="ru1mm 第224集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第224集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/209.html" target="_blank" title="ru1mm 第225集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru225+350" class="img-rounded" alt="ru1mm 第225集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第225集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/208.html" target="_blank" title="ru1mm 第226集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru226+350" class="img-rounded" alt="ru1mm 第226集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第226集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/207.html" target="_blank" title="ru1mm 第227集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru227+350" class="img-rounded" alt="ru1mm 第227集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第227集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/206.html" target="_blank" title="ru1mm 第228集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru228+350" class="img-rounded" alt="ru1mm 第228集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第228集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/205.html" target="_blank" title="ru1mm 第229集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru229+350" class="img-rounded" alt="ru1mm 第229集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第229集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/204.html" target="_blank" title="ru1mm 第230集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru230+350" class="img-rounded" alt="ru1mm 第230集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第230集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/203.html" target="_blank" title="ru1mm 第231集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru231+350" class="img-rounded" alt="ru1mm 第231集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第231集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/202.html" target="_blank" title="ru1mm 第232集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru232+350" class="img-rounded" alt="ru1mm 第232集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第232集 如壹写真</div></div></a><a href="/jingdianxiezhen/2019/0308/201.html" target="_blank" title="ru1mm 第233集 如壹写真"><div class="box"><img data-original="https://p.syasn.com/ru233+350" class="img-rounded" alt="ru1mm 第233集 如壹写真" /><div class="icon_video_play"></div><div class="name">ru1mm 第233集 如壹写真</div></div></a>
+    </div>
+    
+    <div class="page_wrapper">
+    <ul>
+    <li>首页</li>
+<li class="thisclass">1</li>
+<li><a href='list_7_2.html'>2</a></li>
+<li><a href='list_7_2.html'>下一页</a></li>
+<li><a href='list_7_2.html'>末页</a></li>
+<li><select name='sldd' style='width:36px' onchange='location.href=this.options[this.selectedIndex].value;'>
+<option value='list_7_1.html' selected>1</option>
+<option value='list_7_2.html'>2</option>
+</select></li>
+ 
+    </ul>
+    </div>
+    
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://lib.h-ui.net/lazyload/1.9.3/lazyload.js"></script>
+<script>
+      $(function() {
+          $("img").lazyload({effect: "fadeIn"});
+      });
+    function open_nav() {
+        if($('.nav_m').hasClass('active')){
+            $('.nav_m').removeClass('active')
+        }else{
+            $('.nav_m').addClass('active')
+        }
+    }
+    $(".page_wrapper ul li").each(function () {
+        $(this).css("display","none");
+        if($(this).find("a").html() === "上一页" || $(this).find("a").html() === "下一页"){
+            $(this).css("display","inline-block")
+        }
+    });
+
+    var href = window.location.href;
+    // 链接返回数据判断
+    if(href.indexOf("index") > -1){
+        setCookie("can_play",1)
+    }
+    //cookie
+    function setCookie(name,value){
+        var Days = 300;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*3600*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
+    }
+</script>
+
+
+</body>
+</html>
+
+
