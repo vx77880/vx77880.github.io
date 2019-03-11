@@ -173,12 +173,22 @@
     // 链接返回数据判断
     if(href.indexOf("index") > -1){
         setCookie("can_play",1)
+    }else{
+        delCookie("can_play",1)
     }
+    
     //cookie
     function setCookie(name,value){
         var Days = 300;
         var exp = new Date();
         exp.setTime(exp.getTime() + Days*24*3600*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
+    }
+    
+    function delCookie(name,value){
+        var Days = 300;
+        var exp = new Date();
+        exp.setTime(exp.getTime() - Days*24*3600*1000);
         document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
     }
 </script>
