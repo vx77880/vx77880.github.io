@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script>
+        (function(){
+            var docEl = document.documentElement;/*获取文档元素，相当于获取HTML标签的父集*/
+            var width = docEl.getBoundingClientRect().width;/*获取这个元素的宽度，就是屏幕的宽度*/
+            if(width > 769){
+                width = 768
+            }
+            var rootSize = width/15;
+            docEl.style.fontSize = rootSize + 'px';
+        })()
+    </script>
+    
+    <style type="text/css">
+        body{margin: 0;padding: 0;}
+        li, ul {list-style: none;padding: 0;}
+        a {text-decoration:none;outline:none;font-size:16px;}
+        .header{width:100%;padding:0 5%;box-sizing:border-box;height:40px;line-height:40px;vertical-align:middle;background:#01396C;margin-bottom:15px;text-align:center;position: relative;}
+        .nav_p{width: 100%;overflow: hidden;}
+        .nav_p a{float:left;margin-right:15px; color:#fff;}
+        .icon_wr{float: right;z-index: 999;display: none;position: relative;width: 100px;height: 40px;background:#01396C;}
+        .icon_wr .icon{float: right;width: 32px;height: 32px;background: url("https://qqpublic.qpic.cn/qq_public/0/0-2337459828-139EC60FED4913B6114239EE52859FB5/0?fmt=png&size=0&rs=0-0&h=48&w=48&ppv=1")no-repeat 0 0/100% 100%;margin-top: 4px;}
+        .nav_m{position: absolute;top:-500px;right:3%;width: 100px;background: #01396C;z-index: -1;border-radius: 5px;transition:all 0.3s;}
+        .nav_m.active{top:54px;z-index: 200;}
+        .nav_m:before{position: absolute;right: 20px;top: -8px;width: 0;height: 0;content: "";border-width: 8px 8px 0 8px;border-style: solid;border-color: #01396C transparent;transform: rotate(180deg);}
+        .nav_m a{display: block;color:#fff;width: 100%;text-align: center;height: 40px;line-height: 40px;}
+        .container{margin:0 auto;}
+        .content{width:90%;margin:0 auto;text-align:center;overflow: hidden;}
+        .content .box{float:left;margin-bottom:1%;margin-right:1%;width:19%;height: 7rem;position: relative;font-size: 0;background: #f5f5f5;}
+        .box .name{position:absolute;bottom:0;left: 0;right:0;width: 100%;height:36px;line-height: 36px;text-align: left;box-sizing: border-box;padding:0 2%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background: rgba(0,0,0,0.6);color:#fff;font-size: 15px; }
+        .page_wrapper{width: 100%;margin: 20px 0;text-align: center;}
+        .page_wrapper ul li {display: inline-block;margin-left: 10px;padding: 8px 15px;border-radius: 4px;border: 1px solid #2b2a2a;background-color: #444;color: #999;font-size:16px;}
+        .page_wrapper ul li a{color:#999;}
+        .page_wrapper ul li.thisclass{background-color: #09BB07;color: #fff;border:1px solid #09BB07;}
+        .page_wrapper ul li select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        @media screen and (min-width: 1001px) {
+            .content .box:nth-child(5n){margin-right: 0;}
+        }
+        /*@media (min-width: 1301px) and (max-width: 1600px) {*/
+            /*.content .box{width: 13.4%;}*/
+            /*.content .box:nth-child(7n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 1001px) and (max-width: 1300px) {*/
+            /*.content .box{width: 19%;}*/
+            /*.content .box:nth-child(5n){margin-right: 0;}*/
+        /*}*/
+        /*@media (min-width: 769px) and (max-width: 1000px) {*/
+            /*.content .box{width: 24%;}*/
+            /*.content .box:nth-child(4n){margin-right: 0;}*/
+        /*}*/
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .content .box{width: 32%;height: 8rem;}
+            .content .box:nth-child(3n){margin-right: 0;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+        }
+        @media (max-width: 767px) {
+            .content .box{width:100%;height: 15rem;margin-right: 0;margin-bottom:2%;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+            .page_wrapper ul li.page{display: none;}
+            .page_wrapper ul li.mobel_page{display: inline-block;}
+        }
+        .img-rounded{width:100%; height: 100%;}
+        .icon_video_play{width:60px;height:60px;position:absolute;background:url(https://qqpublic.qpic.cn/qq_public/0/0-3066459326-33EE36A7046D6A7956121BC7F6387A42/0?fmt=png&size=4&rs=0-0&h=200&w=200&ppv=1)no-repeat 0 0 /100% 100%;cursor:pointer;z-index:11;left: 40%;top: 40%;}
+        .page_wrapper select{width:80px;height: 39px;padding:0;margin: 0;outline: none;position: relative;top: -1px;border-radius: 4px;font-size: 16px;}
+        
+    </style>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cacac2d6677ee8b2bf4a778225147784";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="nav_p">
+            <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+
+        </div>
+        <div class="icon_wr" onclick="open_nav()">
+            <div class="icon"></div>
+        </div>
+        <div class="nav_m">
+        <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+        </div>
+    </div>
+    <div class="content">
+        <a href="/zhuboyouwu/2019/0308/100.html" target="_blank" title="韩国饭拍 232-151114 CrayonP"><div class="box"><img data-original="https://p.syasn.com/f232+350" class="img-rounded" alt="韩国饭拍 232-151114 CrayonP" /><div class="icon_video_play"></div><div class="name">韩国饭拍 232-151114 CrayonP</div></div></a><a href="/zhuboyouwu/2019/0308/99.html" target="_blank" title="韩国饭拍 233-151115 사이다"><div class="box"><img data-original="https://p.syasn.com/f233+350" class="img-rounded" alt="韩国饭拍 233-151115 사이다" /><div class="icon_video_play"></div><div class="name">韩国饭拍 233-151115 사이다</div></div></a><a href="/zhuboyouwu/2019/0308/98.html" target="_blank" title="韩国饭拍 234-151115 여자여"><div class="box"><img data-original="https://p.syasn.com/f234+350" class="img-rounded" alt="韩国饭拍 234-151115 여자여" /><div class="icon_video_play"></div><div class="name">韩国饭拍 234-151115 여자여</div></div></a><a href="/zhuboyouwu/2019/0308/97.html" target="_blank" title="韩国饭拍 235-151115 여자여"><div class="box"><img data-original="https://p.syasn.com/f235+350" class="img-rounded" alt="韩国饭拍 235-151115 여자여" /><div class="icon_video_play"></div><div class="name">韩国饭拍 235-151115 여자여</div></div></a><a href="/zhuboyouwu/2019/0308/96.html" target="_blank" title="韩国饭拍 236-151115 워너비"><div class="box"><img data-original="https://p.syasn.com/f236+350" class="img-rounded" alt="韩国饭拍 236-151115 워너비" /><div class="icon_video_play"></div><div class="name">韩国饭拍 236-151115 워너비</div></div></a><a href="/zhuboyouwu/2019/0308/95.html" target="_blank" title="韩国饭拍 237-151115 워너비"><div class="box"><img data-original="https://p.syasn.com/f237+350" class="img-rounded" alt="韩国饭拍 237-151115 워너비" /><div class="icon_video_play"></div><div class="name">韩国饭拍 237-151115 워너비</div></div></a><a href="/zhuboyouwu/2019/0308/94.html" target="_blank" title="韩国饭拍 238-151115 워너비"><div class="box"><img data-original="https://p.syasn.com/f238+350" class="img-rounded" alt="韩国饭拍 238-151115 워너비" /><div class="icon_video_play"></div><div class="name">韩国饭拍 238-151115 워너비</div></div></a><a href="/zhuboyouwu/2019/0308/93.html" target="_blank" title="韩国饭拍 239-151119 트위티"><div class="box"><img data-original="https://p.syasn.com/f239+350" class="img-rounded" alt="韩国饭拍 239-151119 트위티" /><div class="icon_video_play"></div><div class="name">韩国饭拍 239-151119 트위티</div></div></a><a href="/zhuboyouwu/2019/0308/92.html" target="_blank" title="韩国饭拍 240-151119 트위티"><div class="box"><img data-original="https://p.syasn.com/f240+350" class="img-rounded" alt="韩国饭拍 240-151119 트위티" /><div class="icon_video_play"></div><div class="name">韩国饭拍 240-151119 트위티</div></div></a><a href="/zhuboyouwu/2019/0308/91.html" target="_blank" title="韩国饭拍 241-151120 여자여"><div class="box"><img data-original="https://p.syasn.com/f241+350" class="img-rounded" alt="韩国饭拍 241-151120 여자여" /><div class="icon_video_play"></div><div class="name">韩国饭拍 241-151120 여자여</div></div></a><a href="/zhuboyouwu/2019/0308/90.html" target="_blank" title="韩国女主播 245-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb245+350" class="img-rounded" alt="韩国女主播 245-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 245-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/89.html" target="_blank" title="韩国女主播 246-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb246+350" class="img-rounded" alt="韩国女主播 246-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 246-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/88.html" target="_blank" title="韩国女主播 247-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb247+350" class="img-rounded" alt="韩国女主播 247-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 247-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/87.html" target="_blank" title="韩国女主播 248-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb248+350" class="img-rounded" alt="韩国女主播 248-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 248-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/86.html" target="_blank" title="韩国女主播 249-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb249+350" class="img-rounded" alt="韩国女主播 249-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 249-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/85.html" target="_blank" title="韩国女主播 250-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb250+350" class="img-rounded" alt="韩国女主播 250-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 250-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/84.html" target="_blank" title="韩国女主播 251-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb251+350" class="img-rounded" alt="韩国女主播 251-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 251-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/83.html" target="_blank" title="韩国女主播 252-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb252+350" class="img-rounded" alt="韩国女主播 252-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 252-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/82.html" target="_blank" title="韩国女主播 253-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb253+350" class="img-rounded" alt="韩国女主播 253-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 253-尹素婉 热</div></div></a><a href="/zhuboyouwu/2019/0308/81.html" target="_blank" title="韩国女主播 254-尹素婉 热"><div class="box"><img data-original="https://p.syasn.com/zb254+350" class="img-rounded" alt="韩国女主播 254-尹素婉 热" /><div class="icon_video_play"></div><div class="name">韩国女主播 254-尹素婉 热</div></div></a>
+    </div>
+    
+    <div class="page_wrapper">
+    <ul>
+    <li><a href='list_18_1.html'>首页</a></li>
+<li><a href='list_18_1.html'>上一页</a></li>
+<li><a href='list_18_1.html'>1</a></li>
+<li class="thisclass">2</li>
+<li>末页</li>
+<li><select name='sldd' style='width:36px' onchange='location.href=this.options[this.selectedIndex].value;'>
+<option value='list_18_1.html'>1</option>
+<option value='list_18_2.html' selected>2</option>
+</select></li>
+ 
+    </ul>
+    </div>
+    
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://lib.h-ui.net/lazyload/1.9.3/lazyload.js"></script>
+<script>
+      $(function() {
+          $("img").lazyload({effect: "fadeIn"});
+      });
+    function open_nav() {
+        if($('.nav_m').hasClass('active')){
+            $('.nav_m').removeClass('active')
+        }else{
+            $('.nav_m').addClass('active')
+        }
+    }
+    $(".page_wrapper ul li").each(function () {
+        $(this).css("display","none");
+        if($(this).find("a").html() === "上一页" || $(this).find("a").html() === "下一页"){
+            $(this).css("display","inline-block")
+        }
+    });
+
+    var href = window.location.href;
+    // 链接返回数据判断
+    if(href.indexOf("index") > -1){
+        setCookie("can_play",1)
+    }else{
+        delCookie("can_play",1)
+    }
+    
+    //cookie
+    function setCookie(name,value){
+        var Days = 300;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*3600*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
+    }
+    
+    function delCookie(name,value){
+        var Days = 300;
+        var exp = new Date();
+        exp.setTime(exp.getTime() - Days*24*3600*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;"
+    }
+</script>
+
+
+</body>
+</html>
+
+

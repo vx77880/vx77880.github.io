@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>街拍美女 街拍热裤105</title>
+     <meta name="keywords" content="街拍美女 街拍热裤105">
+    <meta name="description" content="街拍美女 街拍热裤105">
+    <script src="/tvp.player_v2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <style type="text/css">
+        *{margin: 0 auto;padding:0;}
+        body{margin: 0 auto!important;padding:0;font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;background: #fff;}
+        a:hover{text-decoration: none;}
+        a, input, textarea，select,option,textarea,button{text-decoration: none;outline: 0;}
+        i {font-style: normal;}
+        li, ul {list-style: none;}
+        .header{width:100%;padding:0 5%;box-sizing:border-box;height:40px;line-height:40px;vertical-align:middle;background:#01396C;text-align:center;position: relative;}
+        .nav_p{width: 100%;overflow: hidden;}
+        .nav_p a{float:left;margin-right:15px; color:#fff;}
+        .icon_wr{float: right;z-index: 999;display: none;position: relative;width: 100px;height: 40px;background:#01396C;}
+        .icon_wr .icon{float: right;width: 32px;height: 32px;background: url("https://qqpublic.qpic.cn/qq_public/0/0-2337459828-139EC60FED4913B6114239EE52859FB5/0?fmt=png&size=0&rs=0-0&h=48&w=48&ppv=1")no-repeat 0 0/100% 100%;margin-top: 4px;}
+        .nav_m{position: absolute;top:-500px;right:3%;width: 100px;background: #01396C;z-index: -1;border-radius: 5px;transition:all 0.3s;}
+        .nav_m.active{top:54px;z-index: 200;}
+        .nav_m:before{position: absolute;right: 20px;top: -8px;width: 0;height: 0;content: "";border-width: 8px 8px 0 8px;border-style: solid;border-color: #01396C transparent;transform: rotate(180deg);}
+        .nav_m a{display: block;color:#fff;width: 100%;text-align: center;height: 40px;line-height: 40px;}
+        #video-wrapper{width: 100%;background: #2e2e36;font-size: 0;padding-bottom:20px;}
+        #video-wrapper .share-wrapper{position: relative;padding: 10px 120px 0 15px;}
+        .share-wrapper .name{margin:auto;font-size: 16px;color: #ccc;}
+        .share-wrapper .share-btn{position: absolute;right: 15px;top: 20%;z-index: 1;width: 100px;height: 36px;line-height:36px;font-size: 14px;border-radius: 5px;text-align: center;background: red;color:#fff;display: none;}
+        .novel img{margin: 0 25%;}
+        .img_play{width: 100%;height:320px;background: #000;position: relative;display: none;}
+        .img_play img{width: 50%;height: 100%;margin: 0 25%;}
+        .tvp_overlay_play{position: absolute;z-index: 5;left: 0;right: 0;bottom: 0;top: 0;width: 76px;height: 50px;line-height: 50px;margin: auto!important;overflow: hidden;font-size: 0;text-align: center;background: rgba(23,23,23,.9);border-radius: 3px;cursor: pointer;}
+        .tvp_overlay_play .tvp_button_play{position: absolute;display: block;width: 0;height: 0;left: 30px;top: 14px;margin: auto;overflow: hidden;vertical-align: middle;border: 20px solid transparent;border-width: 12px 21px;border-left-color: #fff;}
+        .loading_wrapper{width: 100%;height:320px;background: #000;display: none;}
+        .loading_wrapper .loading{width: 60px;margin: 0 auto;padding-top:120px;}
+        .loading img{width: 100%;}
+        .loading_err{width: 100%;height: 320px;padding-top:80px;box-sizing:border-box;display: none;}
+        .loading_err .text{width: 100%;text-align: center;line-height: 36px;color: #fff;font-size: 16px;}
+        .loading_err .m_btn{width: 200px;margin:0 auto;text-align: center;height:40px;line-height: 40px;font-size: 16px;color:#fff;background: #81D842;border-radius: 5px;margin-top: 20px;}
+        .mask{position: fixed;top:0;left: 0;right:0;width: 100%;height: 370px;background: rgba(0,0,0,0.8);z-index: 999;display: none;}
+        .mask div{width: 200px;margin: 70px auto;}
+        .mask div img{width: 100%;}
+        .novel{padding-top:10px;}
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+        }
+        @media (max-width: 767px) {
+            .novel img{width:90% !important;margin: 0 5%;}
+            .nav_p{display: none;}
+            .icon_wr{display: block;}
+        }
+        
+         .content,
+        .content * {
+        width: 95%;
+            font-size: 22px;
+            line-height: 35px;
+
+        }
+        #mask_share{position: fixed;top:0;bottom:0;left:0;right:0;min-width: 320px;max-width: 740px;height:100%;background: url("https://qqpublic.qpic.cn/qq_public/0/0-2981345713-DDE0AD94E4E772526A223B1EEEE4D648/0?fmt=png&size=31&rs=12-12&h=736&w=414&ppv=1")no-repeat 0 0 /100% 100%;z-index:999;display: none;}
+    </style>
+    
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cacac2d6677ee8b2bf4a778225147784";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="nav_p">
+            <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+        </div>
+        <div class="icon_wr" onclick="open_nav()">
+            <div class="icon"></div>
+        </div>
+        <div class="nav_m">
+            <a href="/">全部</a>
+            
+            <a href='/jiepaimeinv/list_17_1.html' title="街拍美女">街拍美女</a>
+            
+            <a href='/zhuboyouwu/list_18_1.html' title="主播秀舞">主播秀舞</a>
+            
+            <a href='/tuinvlang/list_19_1.html' title="推女郎">推女郎</a>
+            
+            <a href='/jingdianxiezhen/list_7_1.html' title="经典写真">经典写真</a>
+            
+            <a href='/xingganchemo/list_20_1.html' title="性感车模">性感车模</a>
+            
+            <a href='/guochansipai/list_15_1.html' title="国产私拍">国产私拍</a>
+            
+            <a href='/weipaifuli/list_16_1.html' title="微拍福利">微拍福利</a>
+            
+        </div>
+    </div>
+    <div id="video-wrapper">
+        <div id="mod_video"></div>
+        <div class="img_play" onclick="play_loading()">
+            <img class="play_img" src="" alt="">
+            <div class="tvp_overlay_play"><span class="tvp_button_play"></span></div>
+        </div>
+        <div class="loading_wrapper">
+            <div class="loading"><img src="https://qqpublic.qpic.cn/qq_public/0/0-2161599248-0E6E0F46D7504242302BC8055AD9C8C2/0?fmt=gif&size=3&rs=0-0&h=128&w=128&ppv=1" alt=""></div>
+            <div class="loading_err">
+                <div class="text">资源暂时无法观看...</div>
+                <div class="m_btn" onclick="open_mask()">试试vip扫码高清观看</div>
+            </div>
+        </div>
+        <div class="mask"><div><img src="/public_no.jpg" alt=""></div></div>
+        <div class="share-wrapper">
+            <div class="name">街拍美女 街拍热裤105</div>
+            <div class="share-btn" onclick="share_show()">分享到朋友圈</div>
+        </div>
+    </div>
+    <div class="content">
+            <p style="text-align: center;"><img src="https://qqpublic.qpic.cn/qq_public/0/0-3044024940-92FF7777CA4C795CD39E4479F771EAFF/0" style="width: 80%;"></p>
+            <p>邻居最近娶进门个如花似玉的小媳妇，这可让林三眼馋坏了，三十好几的老光棍，一心想要把她弄到自己床上去。</p>
+            <p>深夜，林三刚爬上被窝，就听到急促的敲门声，“三哥，开门，快帮我看看孩子！”</p>
+            <p>听着声音，心里一喜，竟然是隔壁小媳妇找过来了。</p>
+            <p>“妹子，啥事呀？”深更半夜的让小媳妇进门，或许真的能发生点什么。</p>
+            <p>小媳妇叫张雪，长得娇美动人，刚生了孩子更是韵味十足，想到她坐在门口喂奶的画面，林三小腹一阵火热，想要自己也上去嗦两口。</p>
+            <p>他的话音刚落，就听得砰的一声房门被推开，张雪穿着宽松的孕妇装抱着孩子急匆匆的就跑了进来。</p>
+            <p>女人很美，很白，或许是因为刚结婚一年多的原因，二十四岁的张雪虽然已经为人母，但是模样却介于少女和少妇之间，比少女多几分韵味，比少妇少几分成熟，因为正处在哺乳期的缘故，身材比原来更棒了，罩杯都大了两个码，配合着她巴掌大的小脸，更加的惹人怜惜，富有韵味。</p>
+            <p>宽松的孕妇装根本就遮不住她丰盈的上身，林三望向她的时候，她正焦急的朝林三跑来，惊人的山峰，随着她的步子，正一下一下的跳动着，让林三大咽口水，脑袋一片空白，直到阵阵奶香味钻进鼻孔，林三才清醒过来。</p>
+            <p>张雪焦急的说道，“三哥，你在医院工作赶紧帮我看看是咋回事，孩子都哭了一晚上了。”</p>
+            <p>林三确实是在医院工作，不过他却不是医生，他一个大专生，而且还是个野鸡大学的大专生，在医院熬了几年了还只是在医院前台做做接待的工作。</p>
+            <p>林三一边观察着孩子脸色，一边开口问道，“赵建呢？咋不赶紧领孩子上医院呢？”</p>
+            <p>“那死人又出差去了，去海南，说是半年差，谁知道啥时候回来呀……”</p>
+            <p>兴许是对老公的作为太过不满又无人诉说，张雪一张口就停不下里了，看看可怜的孩子，再想想自己，泪眼婆娑，丝毫没注意，她已经坐在了林三的床边，半个身子都贴在了林三的身上，柔软的身子娇小的脸庞，让他一下子身心荡漾起来。</p>
+            <p>“孩子问题不大，就是饿了，让它吃奶就行了。”林三想着还能亲眼看到张雪喂奶，有些兴奋。</p>
+            <p>听着林三的话张雪下意识的用手紧了紧衣领，心虚的低声道。</p>
+            <p>“可是……可是我不下奶了。”</p>
+            <p>林三眉头一皱，“咋回事？”</p>
+            <p>张雪闻言呜呜的哭了起来，“三哥，我已经三天不下奶了，奶粉又恰好喝完了，呜呜……”</p>
+            <p>“这时候超市也关门了，不下奶一般是堵住了，得找人帮揉开胸口的淤塞的奶块就好了。”林三皱眉道。</p>
+            <p>听着林三的话张雪眼睛陡然一亮，而后猛然伸手抓住了林三的手臂急切的说道，“那三哥你会吗？你得帮帮我！”</p>                       
+        </div>
+        
+         <div style="text-align:center">
+            <div style="font-size: 16px;line-height: 25.6px; color:#f00; font-weight: 700;">未完待续......</div>
+
+            <div>
+                <span style="font-size: 16px;line-height: 25.6px;color: rgb(0, 176, 240); font-weight: 700;">后面预告：</span>
+                <span style="font-size: 16px;line-height: 25.6px;color: #f00; font-weight: 700;">
+                    看他是如何把妹子弄上床的！ ......</span>
+
+            </div>
+
+
+            <div style="font-size: 16px;line-height: 25.6px;color: rgb(51, 51, 51);font-weight: 700;">由于微信篇幅限制，只能发到这里啦！</div>
+
+            <div style="font-size: 16px;line-height: 25.6px;color: rgb(51, 51, 51);font-weight: 700;">
+                <span>更多高.潮内容请点击下方【</span><a style="max-width: 100%;color: rgb(255, 41, 65);background-color: rgb(255, 251, 0);">长按二维码</a><span>】</span>
+            </div>
+
+
+
+            <div style="font-size: 16px;line-height: 25.6px; text-align:center; margin-top:30px; margin-bottom:30px;">
+                <img src="https://qqpublic.qpic.cn/qq_public/0/0-2156778020-94277D8D45B7EA36AA67EAA04393E85E/0?fmt=gif&size=27&rs=9-9&h=400&w=400&ppv=1" width="30px" style="vertical-align: middle;">
+                <span style="color: rgb(0, 0, 0);font-weight:700;font-size: 16px;line-height: 25.6px">
+                    长按识别下方二维码，继续观看下一章！
+                </span>
+            </div>
+            
+            <img src="/qrcode.png" style="margin-right: auto;margin-left: auto;border-width: 0px;max-width:80%;">
+        </div>
+
+
+
+
+</div>
+<div id="mask_share" onclick="hidden_mask()"></div>
+<script type="text/javascript">
+    var view;
+    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+        view = "mobile"
+    }else{
+        view = "pc"
+    }
+
+    $.getScript("/d.js",function(){
+        //var video_vid = ["z0845i59vgz","z0845i59vgz","i07662x1n5n","t03175uu476","c0806c0z6gt","c0806c0z6gt","g0163jqvkk2","j0541xtsfw3","u0316tjplvn","v07045b6cgf","r0510we7rlt","r08236vwkji","s0515adbam0","o0822p35di8","m0113f5lp6r","r083065kcrw","p082805c729","k0845l6066w","x03062y5loh","z07915x9zbr","r0612tymxdt","d0806sps6ll","l0800qe9hgn","z07697nsd9m","f0712702u9n","j0710qxcz65","j0727roalzn","z08412fs6j8","x0536wytjfz","w08220yfui5","r0300ymw4en","a0500xg40fi","k0768lc8epj"];
+        var vid = video_vid[Math.floor(Math.random()*video_vid.length)];//'z08317yac0u';
+        var img = 'https://p.syasn.com/j105+350';
+        var video = new tvp.VideoInfo();
+        video.setVid(vid);
+        var player =new tvp.Player();
+        $(".play_img").attr("src",img);
+        var ua = navigator.userAgent.toLowerCase();
+        if(view == "mobile"){
+            if(getCookie("can_play")){
+                player.create({
+                    width:'100%',
+                    height:'360',
+                    video:video,
+                    modId:"mod_video",
+                    autoplay:false,
+                    pic: img
+                });
+            }else{
+                if(ua.match(/MicroMessenger/i) == "micromessenger") {
+                    $(".img_play").css("display","block")
+                }else{
+                    player.create({
+                        width:'100%',
+                        height:'360',
+                        video:video,
+                        modId:"mod_video",
+                        autoplay:false,
+                        pic: img
+                    });
+                }
+            }
+            $(".share-btn").css("display","block")
+        } else if(view == "pc"){
+            $(".img_play").css("display","block")
+        }
+    });
+    //cookie
+    function getCookie(name){
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg)){
+            return unescape(arr[2]);
+        }
+        return '';
+    }
+    //
+    var time = 3;
+    function play_loading() {
+        
+        if(view == "pc"){
+            $(".img_play").css("display","none");
+            $(".loading_wrapper").css("display","block");
+            var timer = setInterval(function () {
+                time--;
+                if(time === 0){
+                    clearInterval(timer);
+                    $(".loading").css("display","none");
+                    $(".loading_err").css("display","block");
+                }
+            },1000)
+        }else if(view == "mobile"){
+            $(".mask").css("display","block")
+        }
+    }
+    //
+    function open_mask() {
+        $(".mask").css("display","block")
+    }
+    //
+    function open_nav() {
+        if($('.nav_m').hasClass('active')){
+            $('.nav_m').removeClass('active')
+        }else{
+            $('.nav_m').addClass('active')
+        }
+    }
+    //
+    function share_show(){
+        player.pause();
+        $("#mask_share").css("display","block")
+    }
+    function hidden_mask() {
+        player.play();
+        $("#mask_share").css("display","none")
+    }
+</script>
+
+</body>
+</html>
+
+
